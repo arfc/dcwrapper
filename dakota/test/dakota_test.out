@@ -1,0 +1,149 @@
+Dakota version 6.10 released May 15 2019.
+Repository revision c963f6ca (2019-05-14) built May 15 2019 00:49:27.
+Running MPI Dakota executable in serial mode.
+Start time: Wed Sep  4 13:45:59 2019
+
+-----------------------
+Begin DAKOTA input file
+dakota_test.in
+-----------------------
+# Demonstrate Dakota script interface to Python script
+# Multidimensional parameter study 
+
+environment, 
+	tabular_data 
+		tabular_data_file = 'dakota_test.dat'
+
+method,						
+	multidim_parameter_study
+    partitions = 1 1
+
+variables,					
+	continuous_design = 2			
+    lower_bounds      1500     -2.0
+    upper_bounds      1600      2.0
+    descriptors       'x1'     "x2"
+
+interface,							
+	fork							
+	  analysis_drivers = 'python cyclus_dakota.py'
+
+responses,				
+	num_objective_functions = 1	
+	no_gradients
+	no_hessians---------------------
+End DAKOTA input file
+---------------------
+
+Using Dakota input file 'dakota_test.in'
+Writing new restart file 'dakota.rst'.
+
+>>>>> Executing environment.
+
+>>>>> Running multidim_parameter_study iterator.
+
+Multidimensional parameter study variable partitions of
+                                     1
+                                     1
+
+---------------------
+Begin Evaluation    1
+---------------------
+Parameters for evaluation 1:
+                      1.5000000000e+03 x1
+                     -2.0000000000e+00 x2
+
+blocking fork: python cyclus_dakota.py /var/folders/gz/vckr8ypx3h303hw95985kctw0000gn/T/dakota_params_45d2c51b /var/folders/gz/vckr8ypx3h303hw95985kctw0000gn/T/dakota_results_6d971fad
+
+Active response data for evaluation 1:
+Active set vector = { 1 }
+                      1.0000000000e+00 obj_fn
+
+
+
+---------------------
+Begin Evaluation    2
+---------------------
+Parameters for evaluation 2:
+                      1.6000000000e+03 x1
+                     -2.0000000000e+00 x2
+
+blocking fork: python cyclus_dakota.py /var/folders/gz/vckr8ypx3h303hw95985kctw0000gn/T/dakota_params_43774ab3 /var/folders/gz/vckr8ypx3h303hw95985kctw0000gn/T/dakota_results_cf61da93
+
+Active response data for evaluation 2:
+Active set vector = { 1 }
+                      1.0000000000e+00 obj_fn
+
+
+
+---------------------
+Begin Evaluation    3
+---------------------
+Parameters for evaluation 3:
+                      1.5000000000e+03 x1
+                      2.0000000000e+00 x2
+
+blocking fork: python cyclus_dakota.py /var/folders/gz/vckr8ypx3h303hw95985kctw0000gn/T/dakota_params_484ddf39 /var/folders/gz/vckr8ypx3h303hw95985kctw0000gn/T/dakota_results_5142bd6b
+
+Active response data for evaluation 3:
+Active set vector = { 1 }
+                      1.0000000000e+00 obj_fn
+
+
+
+---------------------
+Begin Evaluation    4
+---------------------
+Parameters for evaluation 4:
+                      1.6000000000e+03 x1
+                      2.0000000000e+00 x2
+
+blocking fork: python cyclus_dakota.py /var/folders/gz/vckr8ypx3h303hw95985kctw0000gn/T/dakota_params_2782bec5 /var/folders/gz/vckr8ypx3h303hw95985kctw0000gn/T/dakota_results_1fb7f775
+
+Active response data for evaluation 4:
+Active set vector = { 1 }
+                      1.0000000000e+00 obj_fn
+
+
+<<<<< Function evaluation summary: 4 total (4 new, 0 duplicate)
+<<<<< Best parameters          =
+                      1.5000000000e+03 x1
+                     -2.0000000000e+00 x2
+<<<<< Best objective function  =
+                      1.0000000000e+00
+<<<<< Best data captured at function evaluation 1
+
+
+At least one correlation coefficient is nan or inf. This commonly occurs when
+discrete variables (including histogram variables) are present, a response is
+completely insensitive to variables (response variance equal to 0), there are
+fewer samples than variables, or some samples are approximately collinear.
+
+Simple Correlation Matrix among all inputs and outputs:
+                       x1           x2       obj_fn 
+          x1  1.00000e+00 
+          x2  0.00000e+00  1.00000e+00 
+      obj_fn          nan          nan          nan 
+
+Partial Correlation Matrix between input and output:
+                   obj_fn 
+          x1          nan 
+          x2          nan 
+
+Simple Rank Correlation Matrix among all inputs and outputs:
+                       x1           x2       obj_fn 
+          x1  1.00000e+00 
+          x2  0.00000e+00  1.00000e+00 
+      obj_fn          nan          nan          nan 
+
+Partial Rank Correlation Matrix between input and output:
+                   obj_fn 
+          x1          nan 
+          x2          nan 
+
+
+<<<<< Iterator multidim_parameter_study completed.
+<<<<< Environment execution completed.
+DAKOTA execution time in seconds:
+  Total CPU        =   0.011124 [parent =   0.011056, child =    6.8e-05]
+  Total wall clock =      3.756

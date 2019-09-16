@@ -1,0 +1,25 @@
+# Demonstrate Dakota script interface to Python script
+# Multidimensional parameter study 
+
+environment, 
+	tabular_data 
+		tabular_data_file = 'dakota_test.dat'
+
+method,						
+	multidim_parameter_study
+    partitions = 1 1
+
+variables,					
+	continuous_design = 2			
+    lower_bounds      1500     -2.0
+    upper_bounds      1600      2.0
+    descriptors       'x1'     "x2"
+
+interface,							
+	fork							
+	  analysis_drivers = 'python cyclus_dakota.py'
+
+responses,				
+	num_objective_functions = 1	
+	no_gradients
+	no_hessians
