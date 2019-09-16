@@ -1,12 +1,10 @@
-#!/usr/bin/env python
-# necessary python modules
 import dakota.interfacing as di
 import subprocess
 import sys
 import os
 sys.path.append('../../scripts')
 import input as inp
-#import output as oup
+# import output as oup
 # ----------------------------
 # Parse Dakota parameters file
 # ----------------------------
