@@ -4,6 +4,7 @@ import dakota.interfacing as di
 import sys
 import os
 sys.path.append('../../../scripts')
+import input as inp
 
 cycdir = '../../../cyclus-files/oat/cooling-time/'
 
