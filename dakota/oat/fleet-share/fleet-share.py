@@ -21,9 +21,8 @@ params, results = di.read_parameters_file()
 
 # Edit Cyclus input file
 cyclus_template = cycdir+'fleet-share.xml.in'
-scenario_name = 'fs' + str(int(params['fs'])) + '-exp'
-variable_dict = {'fleet_share_mox': int((params['fs'])),
-                 'fleet_share_fr': int((100-params['fs']))}
+scenario_name = 'fs' + str(int(params['fs'])) #+ '-exp'
+variable_dict = {'fleet_share_mox': int((params['fs'])),'fleet_share_fr':int((100-params['fs']))}
 output_xml = cycdir+'fleet-share.xml'
 inp.render_input(cyclus_template, variable_dict, output_xml)
 

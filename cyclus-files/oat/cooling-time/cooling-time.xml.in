@@ -813,7 +813,7 @@
         <supply_buffer>
         <item>
             <commod>POWER</commod>
-            <buffer>6000</buffer>
+            <buffer>8000</buffer>
         </item>
         </supply_buffer>
     </DemandDrivenDeploymentInst>
