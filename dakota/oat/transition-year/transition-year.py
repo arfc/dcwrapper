@@ -2,7 +2,6 @@ import sys
 import os
 sys.path.append('../../../scripts')
 import input as inp
-# import output as oup
 import dakota.interfacing as di
 import subprocess
 import glob
