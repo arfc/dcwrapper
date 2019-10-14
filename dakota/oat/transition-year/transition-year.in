@@ -1,9 +1,9 @@
 # OAT Study 
-# Varying Used Fuel Cooling Time 
+# Varying Transition Start Date (Year)
 
 environment, 
 	tabular_data 
-		tabular_data_file = 'cooling-time.dat'
+		tabular_data_file = 'transition-year.dat'
 
 method,						
 	multidim_parameter_study
@@ -11,13 +11,13 @@ method,
 
 variables,					
 	continuous_design = 1			
-    lower_bounds      0     
-    upper_bounds      8      
-    descriptors       'ct'     
+    lower_bounds      960     
+    upper_bounds      1008      
+    descriptors       'ty'     
 
 interface,							
 	fork							
-	  analysis_drivers = 'python cooling-time.py'
+	  analysis_drivers = 'python transition-year.py'
 
 responses,				
 	num_objective_functions = 1	

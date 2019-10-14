@@ -6,7 +6,7 @@ import os
 sys.path.append('../../../scripts')
 import input as inp
 
-cycdir = '../../../cyclus-files/oat/cooling-time/'
+cycdir = '../../../cyclus-files/oat/transition-year/'
 
 # ----------------------------
 # Parse Dakota parameters file
@@ -19,10 +19,10 @@ params, results = di.read_parameters_file()
 # -------------------------------
 
 # Edit Cyclus input file
-cyclus_template = cycdir + 'cooling-time.xml.in'
-scenario_name = 'ct' + str(int(params['ct']))  # + '-exp'
-variable_dict = {'cooling_time': int((params['ct'] * 12))}
-output_xml = cycdir + 'cooling-time.xml'
+cyclus_template = cycdir + 'transition-year.xml.in'
+scenario_name = 'ty' + str(int(params['ty']))  # + '-exp'
+variable_dict = {'transition_year': int((params['ty']))}
+output_xml = cycdir + 'transition-year.xml'
 inp.render_input(cyclus_template, variable_dict, output_xml)
 
 # Run Cyclus with edited input file
