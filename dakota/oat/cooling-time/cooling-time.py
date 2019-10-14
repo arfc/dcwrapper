@@ -1,10 +1,10 @@
+import glob
+import subprocess
+import dakota.interfacing as di
+import input as inp
 import sys
 import os
 sys.path.append('../../../scripts')
-import input as inp
-import dakota.interfacing as di
-import subprocess
-import glob
 
 cycdir = '../../../cyclus-files/oat/cooling-time/'
 
@@ -19,14 +19,14 @@ params, results = di.read_parameters_file()
 # -------------------------------
 
 # Edit Cyclus input file
-cyclus_template = cycdir+'cooling-time.xml.in'
-scenario_name = 'ct' + str(int(params['ct']))# + '-exp'
-variable_dict = {'cooling_time': int((params['ct']*12))}
-output_xml = cycdir+'cooling-time.xml'
+cyclus_template = cycdir + 'cooling-time.xml.in'
+scenario_name = 'ct' + str(int(params['ct']))  # + '-exp'
+variable_dict = {'cooling_time': int((params['ct'] * 12))}
+output_xml = cycdir + 'cooling-time.xml'
 inp.render_input(cyclus_template, variable_dict, output_xml)
 
 # Run Cyclus with edited input file
-output_sqlite = cycdir+scenario_name+'.sqlite'
+output_sqlite = cycdir + scenario_name + '.sqlite'
 os.system('cyclus -i ' + output_xml + ' -o ' + output_sqlite)
 # ----------------------------
 # Return the results to Dakota
