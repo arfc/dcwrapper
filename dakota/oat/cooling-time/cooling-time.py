@@ -2,7 +2,6 @@ import sys
 import os
 sys.path.append('../../../scripts')
 import input as inp
-# import output as oup
 import dakota.interfacing as di
 import subprocess
 import glob
@@ -36,6 +35,5 @@ os.system('cyclus -i ' + output_xml + ' -o ' + output_sqlite)
 for i, r in enumerate(results.responses()):
     if r.asv.function:
         r.function = 1
-        print('OUT', i, r.function)
 
 results.write()
