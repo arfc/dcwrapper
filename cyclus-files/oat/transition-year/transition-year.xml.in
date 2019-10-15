@@ -99,7 +99,7 @@
 </facility>
 <facility>
     <name>lwr1</name>
-    <lifetime>960</lifetime>
+    <lifetime>{{transition_year}}</lifetime>
     <config>
         <Reactor>
             <fuel_inrecipes>
@@ -797,11 +797,11 @@
         <facility_sharing>
         <item>
             <facility>fr</facility>
-            <percentage>{{fleet_share_fr}}</percentage>
+            <percentage>85</percentage>
         </item>
         <item>
             <facility>moxlwr</facility>
-            <percentage>{{fleet_share_mox}}</percentage>
+            <percentage>15</percentage>
         </item>
         </facility_sharing>
         <buffer_type>
