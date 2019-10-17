@@ -1,7 +1,5 @@
 import external_cym
 import multiprocessing
-import output as oup
-import input as inp
 import sys
 import os
 import signal
@@ -9,6 +7,8 @@ import dakota.interfacing as di
 import subprocess
 import glob
 sys.path.append('../../../scripts')
+import output as oup
+import input as inp
 
 cycdir = '../../../cyclus-files/synergistic/fs-ty/'
 

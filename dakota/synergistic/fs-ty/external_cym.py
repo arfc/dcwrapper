@@ -1,11 +1,10 @@
-import output as oup
 import cymetric as cym
 from cymetric import timeseries
 import signal
 import os
 import sys
 sys.path.append('../../../scripts')
-
+import output as oup
 
 def hlw():
     f = open('output_name.txt', 'r')
