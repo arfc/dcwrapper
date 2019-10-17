@@ -13,8 +13,11 @@ def hlw():
         output_sqlite = f.read()
     f.close()
     ev = cym.Evaluator(db=cym.dbopen(output_sqlite), write=True)
-    val = cym.timeseries.transactions(ev, commodities=['lwrreprocessingwaste', 'moxreprocessingwaste', 'frreprocessingwaste'])[
-        'Mass'].cumsum().iloc[-1]
+    val = cym.timeseries.transactions(ev, 
+                                      commodities=['lwrreprocessingwaste', 
+                                                   'moxreprocessingwaste', 
+                                                   'frreprocessingwaste'])[
+                                                   'Mass'].cumsum().iloc[-1]
     with open('hlw.txt', 'w') as f:
         f.write(str(val))
     return val
@@ -26,7 +29,8 @@ def dep_u():
         output_sqlite = f.read()
     f.close()
     ev = cym.Evaluator(db=cym.dbopen(output_sqlite), write=True)
-    val = cym.timeseries.transactions(ev, commodities=['enrichmentwaste'])['Mass'].cumsum().iloc[-1]
+    val = cym.timeseries.transactions(ev, 
+                                      commodities=['enrichmentwaste'])['Mass'].cumsum().iloc[-1]
     print(val)
     f = open('depu.txt', 'w+')
     f.write(str(val))
