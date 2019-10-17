@@ -1,6 +1,6 @@
-""" 
-This script contains functions to get various output variables 
-from Cyclus's sqlite output database 
+"""
+This script contains functions to get various output variables
+from Cyclus's sqlite output database
 """
 
 import pandas as pd
@@ -10,14 +10,14 @@ from cymetric import fco_metrics
 
 
 def initialize_df(scenario_index, scenarios_nums):
-    """This function creates a pandas dataframe with scenario_index 
+    """This function creates a pandas dataframe with scenario_index
     as index title and scenarios_nums as index values.
     This is used to initialize a dataframe to add subsequent columns to.
-    INPUT 
+    INPUT
     scenario_index: title of index
     scenario_nums: list of scenario numbers
-    OUTPUT 
-    df: initialized pandas dataframe 
+    OUTPUT
+    df: initialized pandas dataframe
     """
     df = pd.DataFrame(index=scenarios_nums)
     df.index.name = scenario_index
@@ -26,7 +26,7 @@ def initialize_df(scenario_index, scenarios_nums):
 
 # sensitivity
 def sensitivity(base_case, init_df):
-    """ This function takes a dataframe 
+    """ This function takes a dataframe
     """
     SA_df = init_df.copy()
     M = init_df.index.size
