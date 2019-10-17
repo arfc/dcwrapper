@@ -50,7 +50,6 @@ fresh = False
 while fresh == False:
     if os.path.exists('hlw.txt'):
         if os.stat('hlw.txt').st_size > 0:
-            print('hi')
             fresh = True
             p.terminate()
 
@@ -66,7 +65,6 @@ fresh = False
 while fresh == False:
     if os.path.exists('depu.txt'):
         if os.stat('depu.txt').st_size > 0:
-            print('hi')
             fresh = True
             p.terminate()
 
@@ -81,7 +79,6 @@ fresh = False
 while fresh == False:
     if os.path.exists('idlecap.txt'):
         if os.stat('idlecap.txt').st_size > 0:
-            print('hihihi')
             fresh = True
             p.terminate()
 
