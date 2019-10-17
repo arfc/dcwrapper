@@ -33,13 +33,11 @@ inp.render_input(cyclus_template, variable_dict, output_xml)
 # Run Cyclus with edited input file
 output_sqlite = cycdir + scenario_name + '.sqlite'
 os.system('cyclus -i ' + output_xml + ' -o ' + output_sqlite)
-#output_sqlite = cycdir + 'wow.sqlite'
 
 # ----------------------------
 # Return the results to Dakota
 # ----------------------------
 
-#ev = cym.Evaluator(db=cym.dbopen(output_sqlite),write=True)
 f = open('output_name.txt', 'w+')
 f.write(output_sqlite)
 f.close()
@@ -47,7 +45,7 @@ f.close()
 p = multiprocessing.Process(target=external_cym.hlw)
 p.start()
 fresh = False
-while fresh == False:
+while fresh is False:
     if os.path.exists('hlw.txt'):
         if os.stat('hlw.txt').st_size > 0:
             fresh = True
@@ -62,7 +60,7 @@ f.close()
 q = multiprocessing.Process(target=external_cym.dep_u)
 q.start()
 fresh = False
-while fresh == False:
+while fresh is False:
     if os.path.exists('depu.txt'):
         if os.stat('depu.txt').st_size > 0:
             fresh = True
@@ -76,7 +74,7 @@ f.close()
 p = multiprocessing.Process(target=external_cym.idlecapp)
 p.start()
 fresh = False
-while fresh == False:
+while fresh is False:
     if os.path.exists('idlecap.txt'):
         if os.stat('idlecap.txt').st_size > 0:
             fresh = True
