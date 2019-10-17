@@ -1,10 +1,10 @@
+import output as oup
 import cymetric as cym
 from cymetric import timeseries
 import signal
 import os
 import sys
 sys.path.append('../../../scripts')
-import output as oup
 
 
 def hlw():
@@ -13,11 +13,11 @@ def hlw():
         output_sqlite = f.read()
     f.close()
     ev = cym.Evaluator(db=cym.dbopen(output_sqlite), write=True)
-    val = cym.timeseries.transactions(ev, 
-                                      commodities=['lwrreprocessingwaste', 
-                                                   'moxreprocessingwaste', 
+    val = cym.timeseries.transactions(ev,
+                                      commodities=['lwrreprocessingwaste',
+                                                   'moxreprocessingwaste',
                                                    'frreprocessingwaste'])[
-                                                   'Mass'].cumsum().iloc[-1]
+        'Mass'].cumsum().iloc[-1]
     with open('hlw.txt', 'w') as f:
         f.write(str(val))
     return val
@@ -29,7 +29,7 @@ def dep_u():
         output_sqlite = f.read()
     f.close()
     ev = cym.Evaluator(db=cym.dbopen(output_sqlite), write=True)
-    val = cym.timeseries.transactions(ev, 
+    val = cym.timeseries.transactions(ev,
                                       commodities=['enrichmentwaste'])['Mass'].cumsum().iloc[-1]
     print(val)
     f = open('depu.txt', 'w+')
