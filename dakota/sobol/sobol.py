@@ -4,7 +4,7 @@
 import dakota.interfacing as di
 import subprocess
 import sys
-import os 
+import os
 import multiprocessing
 sys.path.append('../../scripts')
 import input as inp
@@ -24,17 +24,18 @@ params, results = di.read_parameters_file()
 
 # Edit Cyclus input file
 cyclus_template = cycdir + 'sobol.xml.in'
-scenario_name = 'fs' + str(int(params['fs'])) + 'ty' + str(int(params['ty'])) + 'ct' + str(int(params['ct']))
+scenario_name = 'fs' + str(int(params['fs'])) + 'ty' + \
+    str(int(params['ty'])) + 'ct' + str(int(params['ct']))
 variable_dict = {'fleet_share_mox': int((params['fs'])),
                  'fleet_share_fr': int((100 - params['fs'])),
                  'transition_year': int((params['ty'])),
-                 'cooling_time':int((params['ct'] * 12))}
+                 'cooling_time': int((params['ct'] * 12))}
 output_xml = cycdir + 'sobol.xml'
 inp.render_input(cyclus_template, variable_dict, output_xml)
 
 # Run Cyclus with edited input file
 output_sqlite = cycdir + scenario_name + '.sqlite'
-os.system('cyclus -i ' + output_xml + ' -o ' + output_sqlite) 
+os.system('cyclus -i ' + output_xml + ' -o ' + output_sqlite)
 
 # ----------------------------
 # Return the results to Dakota
@@ -105,4 +106,3 @@ if os.path.exists('idlecap.txt'):
     os.remove('idlecap.txt')
 
 results.write()
-
