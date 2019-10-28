@@ -34,16 +34,16 @@ def sensitivity(base_case, init_df):
     init_df: pandas dataframe
     OUTPUT sa_df = sensitivity analysis pandas dataframe 
     """
-    sa_df = init_df.copy()
-    M = init_df.index.size
+    sfa_df = init_df.copy()
+    df_length = init_df.index.size
     categories = list(init_df)
     N = len(categories)
     row = 0
-    for x in range(M):
+    for x in range(df_length):
         if init_df.index[x] == base_case:
             basecase_index = row
         row += 1
-    for x in range(M):
+    for x in range(df_length):
         if init_df.index[x] == base_case:
             for y in range(N):
                 sa_df.iloc[x, y] = 0
