@@ -9,14 +9,15 @@ import output as oup
 
 
 def format_dataframe(dat_file, column_names, index):
-    """ This function formats a dakota output dat file into an easily readable format 
-    INPUT 
+    """ This function formats a dakota output dat file into
+    an easily readable format
+    INPUT
     dat_file: path to dat file (str)
-    column_names = list of names corresponding to what the user wants each column to be named
-                   (list of str)
+    column_names = list of names corresponding to what the user wants
+    each column to be named (list of str)
     index = list of input variable names to be index (list of str)
-    OUTPUT 
-    df: formatted pandas dataframe 
+    OUTPUT
+    df: formatted pandas dataframe
     """
     df = pd.read_csv(dat_file, sep='\s+', names=column_names)
     df = df.iloc[1:]
@@ -26,14 +27,14 @@ def format_dataframe(dat_file, column_names, index):
 
 
 def initialize_df(scenario_index, scenarios_nums):
-    """This function creates a pandas dataframe with scenario_index 
+    """This function creates a pandas dataframe with scenario_index
     as index title and scenarios_nums as index values.
     This is used to initialize a dataframe to add subsequent columns to.
-    INPUT 
+    INPUT
     scenario_index: title of index
     scenario_nums: list of scenario numbers
-    OUTPUT 
-    df: initialized pandas dataframe 
+    OUTPUT
+    df: initialized pandas dataframe
     """
     df = pd.DataFrame(index=scenarios_nums)
     df.index.name = scenario_index
@@ -41,13 +42,13 @@ def initialize_df(scenario_index, scenarios_nums):
 
 
 def threed_plot(df, commod, arrange):
-    """ This function creates a 3D surf plot from the dataframe for the 
-    input commod. 
-    INPUT VARIABLES 
-    df: pandas dataframe with results 
-    commod: name of commod to plot from pandas dataframe 
-    arrange: Boolean. True if you want (x,y) orientation, False if you want 
-    (y,x) orientation for the x,y variables in the 3D plot. 
+    """ This function creates a 3D surf plot from the dataframe for the
+    input commod.
+    INPUT VARIABLES
+    df: pandas dataframe with results
+    commod: name of commod to plot from pandas dataframe
+    arrange: Boolean. True if you want (x,y) orientation, False if you want
+    (y,x) orientation for the x,y variables in the 3D plot.
     """
     fig = plt.figure(figsize=(10, 7))
     ax = plt.axes(projection='3d')
