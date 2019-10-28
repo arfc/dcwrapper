@@ -1,0 +1,28 @@
+# Multidimensional parameter study 
+
+environment, 
+	tabular_data 
+		tabular_data_file = 'fs-ty.dat'
+		# saves input and outputs to dat file 
+
+method,						
+	multidim_parameter_study # type of analysis
+    partitions = 4 4 # No. of intervals 
+
+model, 
+single
+
+variables,					
+	continuous_design = 2			
+    lower_bounds       0       960          
+    upper_bounds       20      1008
+    descriptors       'fs'     'ty'     
+
+interface,							
+	fork							
+	  analysis_drivers = 'python fs-ty.py'
+
+responses,				
+	num_objective_functions = 3	# no. of output variables 
+	no_gradients
+	no_hessians
