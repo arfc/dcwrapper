@@ -1,0 +1,1059 @@
+Dakota version 6.10 released May 15 2019.
+Repository revision c963f6c (2019-05-14) built Oct  4 2019 15:31:24.
+Running serial Dakota executable in serial mode.
+Start time: Thu Oct 17 16:57:57 2019
+
+-----------------------
+Begin DAKOTA input file
+sobol.in
+-----------------------
+# Dakota Input File: sobol.in
+
+environment
+  tabular_data
+    tabular_data_file 'sobol.dat'
+
+method
+  nond_sampling
+    sample_type 
+      lhs
+    variance_based_decomp
+    samples = 10
+
+variables,					
+    discrete_interval_uncertain = 3
+       num_intervals = 1 1 1 
+       lower_bounds       0    960   0         
+       upper_bounds       20   1008  4
+       descriptors       'fs' 'ty' 'ct' 
+
+interface
+  fork 
+    analysis_drivers = 'python sobol.py'
+    
+responses
+  num_response_functions = 3
+  no_gradients
+  no_hessians
+---------------------
+End DAKOTA input file
+---------------------
+
+Using Dakota input file 'sobol.in'
+Reading restart file 'dakota.rst'.
+  Any unexpected errors may indicate a corrupt restart file; using -stop_restart
+  to truncate the read may help.
+
+------------------------------------------
+Restart record    1  (evaluation id    1):
+------------------------------------------
+Parameters:
+                                     4 fs
+                                   994 ty
+                                     1 ct
+
+Active response data:
+Active set vector = { 1 1 1 }
+                      1.3519749128e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+------------------------------------------
+Restart record    2  (evaluation id    2):
+------------------------------------------
+Parameters:
+                                     0 fs
+                                   985 ty
+                                     0 ct
+
+Active response data:
+Active set vector = { 1 1 1 }
+                      1.1750594950e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2177082000e+02 response_fn_3
+
+
+
+------------------------------------------
+Restart record    3  (evaluation id    3):
+------------------------------------------
+Parameters:
+                                     4 fs
+                                   985 ty
+                                     0 ct
+
+Active response data:
+Active set vector = { 1 1 1 }
+                      1.3486613677e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+------------------------------------------
+Restart record    4  (evaluation id    4):
+------------------------------------------
+Parameters:
+                                     0 fs
+                                   994 ty
+                                     0 ct
+
+Active response data:
+Active set vector = { 1 1 1 }
+                      1.1419362893e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2177082000e+02 response_fn_3
+
+
+
+------------------------------------------
+Restart record    5  (evaluation id    5):
+------------------------------------------
+Parameters:
+                                     0 fs
+                                   985 ty
+                                     1 ct
+
+Active response data:
+Active set vector = { 1 1 1 }
+                      1.1849490875e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2177082000e+02 response_fn_3
+
+
+Restart file processing completed: 5 evaluations retrieved.
+Overwriting existing restart file 'dakota.rst'.
+
+>>>>> Executing environment.
+
+>>>>> Running random_sampling iterator.
+
+NonD lhs Samples = 10 Seed (system-generated) = 765330
+
+NonD lhs Samples = 10 Seed not reset from previous LHS execution
+
+---------------------
+Begin Evaluation    1
+---------------------
+Parameters for evaluation 1:
+                                     1 fs
+                                   983 ty
+                                     0 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_6fd93717 /tmp/dakota_results_4266d87e
+
+Active response data for evaluation 1:
+Active set vector = { 1 1 1 }
+                      1.3495064840e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation    2
+---------------------
+Parameters for evaluation 2:
+                                    18 fs
+                                   999 ty
+                                     2 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_6827ad9e /tmp/dakota_results_3646b45b
+
+Active response data for evaluation 2:
+Active set vector = { 1 1 1 }
+                      1.3474156757e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2162450667e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation    3
+---------------------
+Parameters for evaluation 3:
+                                    15 fs
+                                   971 ty
+                                     4 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_3761c3c7 /tmp/dakota_results_91a2c5bc
+
+Active response data for evaluation 3:
+Active set vector = { 1 1 1 }
+                      1.3016330520e+07 response_fn_1
+                      7.9881862037e+08 response_fn_2
+                      1.2091666000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation    4
+---------------------
+Parameters for evaluation 4:
+                                    12 fs
+                                   988 ty
+                                     1 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_104da80c /tmp/dakota_results_64b44fbf
+
+Active response data for evaluation 4:
+Active set vector = { 1 1 1 }
+                      1.3335562270e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation    5
+---------------------
+Parameters for evaluation 5:
+                                     6 fs
+                                  1006 ty
+                                     3 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_f15219c0 /tmp/dakota_results_be0cdc7f
+
+Active response data for evaluation 5:
+Active set vector = { 1 1 1 }
+                      1.3321096615e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation    6
+---------------------
+Parameters for evaluation 6:
+                                     9 fs
+                                   998 ty
+                                     3 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_f0639c7d /tmp/dakota_results_9dbad00d
+
+Active response data for evaluation 6:
+Active set vector = { 1 1 1 }
+                      1.3320148937e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2193695333e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation    7
+---------------------
+Parameters for evaluation 7:
+                                    20 fs
+                                   979 ty
+                                     0 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_a341423f /tmp/dakota_results_7e9aab60
+
+Active response data for evaluation 7:
+Active set vector = { 1 1 1 }
+                      1.3442876864e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.3327057333e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation    8
+---------------------
+Parameters for evaluation 8:
+                                     2 fs
+                                   965 ty
+                                     1 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_5269d789 /tmp/dakota_results_1ab51fbc
+
+Active response data for evaluation 8:
+Active set vector = { 1 1 1 }
+                      1.3304947968e+07 response_fn_1
+                      7.9881862037e+08 response_fn_2
+                      1.2160399333e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation    9
+---------------------
+Parameters for evaluation 9:
+                                    10 fs
+                                   994 ty
+                                     2 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_1f4be8b2 /tmp/dakota_results_58bace4c
+
+Active response data for evaluation 9:
+Active set vector = { 1 1 1 }
+                      1.3384315535e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   10
+---------------------
+Parameters for evaluation 10:
+                                     6 fs
+                                   963 ty
+                                     4 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_9d2d1672 /tmp/dakota_results_cef672e8
+
+Active response data for evaluation 10:
+Active set vector = { 1 1 1 }
+                      1.3022156443e+07 response_fn_1
+                      7.9881862037e+08 response_fn_2
+                      1.2074999333e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   11
+---------------------
+Parameters for evaluation 11:
+                                    20 fs
+                                   976 ty
+                                     3 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_195b99c3 /tmp/dakota_results_7cfa6639
+
+Active response data for evaluation 11:
+Active set vector = { 1 1 1 }
+                      1.3146069998e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2102082667e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   12
+---------------------
+Parameters for evaluation 12:
+                                     0 fs
+                                   984 ty
+                                     1 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_00f04aa7 /tmp/dakota_results_d8f8c61d
+
+Active response data for evaluation 12:
+Active set vector = { 1 1 1 }
+                      1.2071551250e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2177082000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   13
+---------------------
+Parameters for evaluation 13:
+                                     2 fs
+                                   981 ty
+                                     4 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_54f2b263 /tmp/dakota_results_ca9a593e
+
+Active response data for evaluation 13:
+Active set vector = { 1 1 1 }
+                      1.3212165811e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2947852000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   14
+---------------------
+Parameters for evaluation 14:
+                                     5 fs
+                                   962 ty
+                                     3 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_243e9017 /tmp/dakota_results_9b49b1fb
+
+Active response data for evaluation 14:
+Active set vector = { 1 1 1 }
+                      1.3001055906e+07 response_fn_1
+                      7.9881862037e+08 response_fn_2
+                      1.2314567333e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   15
+---------------------
+Parameters for evaluation 15:
+                                    10 fs
+                                  1006 ty
+                                     2 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_e442e90b /tmp/dakota_results_2cf7c190
+
+Active response data for evaluation 15:
+Active set vector = { 1 1 1 }
+                      1.3456905836e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   16
+---------------------
+Parameters for evaluation 16:
+                                    15 fs
+                                   969 ty
+                                     1 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_0f086a30 /tmp/dakota_results_95f34564
+
+Active response data for evaluation 16:
+Active set vector = { 1 1 1 }
+                      1.3217434727e+07 response_fn_1
+                      7.9881862037e+08 response_fn_2
+                      1.2087499333e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   17
+---------------------
+Parameters for evaluation 17:
+                                     6 fs
+                                   994 ty
+                                     0 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_d8b92260 /tmp/dakota_results_c6292c5a
+
+Active response data for evaluation 17:
+Active set vector = { 1 1 1 }
+                      1.3571599970e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   18
+---------------------
+Parameters for evaluation 18:
+                                    18 fs
+                                   974 ty
+                                     0 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_64e9bad2 /tmp/dakota_results_2a3836a2
+
+Active response data for evaluation 18:
+Active set vector = { 1 1 1 }
+                      1.3294114482e+07 response_fn_1
+                      8.0172048418e+08 response_fn_2
+                      1.2097916000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   19
+---------------------
+Parameters for evaluation 19:
+                                    13 fs
+                                  1002 ty
+                                     4 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_959462e3 /tmp/dakota_results_6f763235
+
+Active response data for evaluation 19:
+Active set vector = { 1 1 1 }
+                      1.3283356570e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   20
+---------------------
+Parameters for evaluation 20:
+                                     8 fs
+                                   995 ty
+                                     2 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_7f3f7ada /tmp/dakota_results_74f6e667
+
+Active response data for evaluation 20:
+Active set vector = { 1 1 1 }
+                      1.3526710140e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   21
+---------------------
+Parameters for evaluation 21:
+                                     1 fs
+                                   976 ty
+                                     3 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_281451cf /tmp/dakota_results_a6a52a3a
+
+Active response data for evaluation 21:
+Active set vector = { 1 1 1 }
+                      1.3197352463e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2206232667e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   22
+---------------------
+Parameters for evaluation 22:
+                                    18 fs
+                                   984 ty
+                                     1 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_0da37a8f /tmp/dakota_results_2629e2e3
+
+Active response data for evaluation 22:
+Active set vector = { 1 1 1 }
+                      1.3348901965e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   23
+---------------------
+Parameters for evaluation 23:
+                                    15 fs
+                                   981 ty
+                                     4 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_a77d18e5 /tmp/dakota_results_628418d8
+
+Active response data for evaluation 23:
+Active set vector = { 1 1 1 }
+                      1.3190514364e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2714524000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   24
+---------------------
+Parameters for evaluation 24:
+                                    12 fs
+                                   962 ty
+                                     3 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_240f4e39 /tmp/dakota_results_dac59665
+
+Active response data for evaluation 24:
+Active set vector = { 1 1 1 }
+                      1.2969611462e+07 response_fn_1
+                      7.9881862037e+08 response_fn_2
+                      1.2206250000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   25
+---------------------
+Parameters for evaluation 25:
+                                     6 fs
+                                  1006 ty
+                                     2 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_0df58c95 /tmp/dakota_results_5ca65348
+
+Active response data for evaluation 25:
+Active set vector = { 1 1 1 }
+                      1.3442292516e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   26
+---------------------
+Parameters for evaluation 26:
+                                     9 fs
+                                   969 ty
+                                     1 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_8f8aa323 /tmp/dakota_results_4a2fe25b
+
+Active response data for evaluation 26:
+Active set vector = { 1 1 1 }
+                      1.3263961339e+07 response_fn_1
+                      7.9881862037e+08 response_fn_2
+                      1.2087499333e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   27
+---------------------
+Parameters for evaluation 27:
+                                    20 fs
+                                   994 ty
+                                     0 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_bbb8170d /tmp/dakota_results_2fcf640e
+
+Active response data for evaluation 27:
+Active set vector = { 1 1 1 }
+                      1.3571258416e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   28
+---------------------
+Parameters for evaluation 28:
+                                     2 fs
+                                   974 ty
+                                     0 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_8c7610e3 /tmp/dakota_results_17e045bd
+
+Active response data for evaluation 28:
+Active set vector = { 1 1 1 }
+                      1.3318819523e+07 response_fn_1
+                      8.0172048418e+08 response_fn_2
+                      1.2231233333e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   29
+---------------------
+Parameters for evaluation 29:
+                                    10 fs
+                                  1002 ty
+                                     4 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_401a8d3f /tmp/dakota_results_632e1a14
+
+Active response data for evaluation 29:
+Active set vector = { 1 1 1 }
+                      1.3323800455e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   30
+---------------------
+Parameters for evaluation 30:
+                                     6 fs
+                                   995 ty
+                                     2 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_00a1be66 /tmp/dakota_results_d6284714
+
+Active response data for evaluation 30:
+Active set vector = { 1 1 1 }
+                      1.3497470650e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   31
+---------------------
+Parameters for evaluation 31:
+                                    20 fs
+                                   983 ty
+                                     3 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_0fa18828 /tmp/dakota_results_5b70b1ac
+
+Active response data for evaluation 31:
+Active set vector = { 1 1 1 }
+                      1.3221976581e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   32
+---------------------
+Parameters for evaluation 32:
+                                     0 fs
+                                   999 ty
+                                     1 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_e6dbe1da /tmp/dakota_results_465b823c
+
+Active response data for evaluation 32:
+Active set vector = { 1 1 1 }
+                      1.1331026172e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2262436667e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   33
+---------------------
+Parameters for evaluation 33:
+                                     2 fs
+                                   971 ty
+                                     4 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_6da00e87 /tmp/dakota_results_2f87c9f6
+
+Active response data for evaluation 33:
+Active set vector = { 1 1 1 }
+                      1.3033404142e+07 response_fn_1
+                      7.9881862037e+08 response_fn_2
+                      1.2185399333e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   34
+---------------------
+Parameters for evaluation 34:
+                                     5 fs
+                                   988 ty
+                                     3 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_85266f59 /tmp/dakota_results_6e68f137
+
+Active response data for evaluation 34:
+Active set vector = { 1 1 1 }
+                      1.3203470436e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   35
+---------------------
+Parameters for evaluation 35:
+                                    10 fs
+                                  1006 ty
+                                     2 ct
+
+Duplication detected: analysis_drivers not invoked.
+
+Active response data retrieved from database:
+Active set vector = { 1 1 1 }
+                      1.3456905836e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   36
+---------------------
+Parameters for evaluation 36:
+                                    15 fs
+                                   998 ty
+                                     1 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_3013b438 /tmp/dakota_results_991a875d
+
+Active response data for evaluation 36:
+Active set vector = { 1 1 1 }
+                      1.3348969674e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2160365333e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   37
+---------------------
+Parameters for evaluation 37:
+                                     6 fs
+                                   979 ty
+                                     0 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_230702ac /tmp/dakota_results_5d70d047
+
+Active response data for evaluation 37:
+Active set vector = { 1 1 1 }
+                      1.3494603839e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.3627057333e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   38
+---------------------
+Parameters for evaluation 38:
+                                    18 fs
+                                   965 ty
+                                     0 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_19a57d60 /tmp/dakota_results_5fd129dc
+
+Active response data for evaluation 38:
+Active set vector = { 1 1 1 }
+                      1.3318677795e+07 response_fn_1
+                      7.9881862037e+08 response_fn_2
+                      1.2079166000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   39
+---------------------
+Parameters for evaluation 39:
+                                    13 fs
+                                   994 ty
+                                     4 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_6e30fcb9 /tmp/dakota_results_07cd0324
+
+Active response data for evaluation 39:
+Active set vector = { 1 1 1 }
+                      1.3231834140e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   40
+---------------------
+Parameters for evaluation 40:
+                                     8 fs
+                                   963 ty
+                                     2 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_2d33b15f /tmp/dakota_results_8ed435e9
+
+Active response data for evaluation 40:
+Active set vector = { 1 1 1 }
+                      1.3208323293e+07 response_fn_1
+                      7.9881862037e+08 response_fn_2
+                      1.2074999333e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   41
+---------------------
+Parameters for evaluation 41:
+                                    20 fs
+                                   976 ty
+                                     0 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_d5f0f378 /tmp/dakota_results_cceadc04
+
+Active response data for evaluation 41:
+Active set vector = { 1 1 1 }
+                      1.3428317532e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2102082667e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   42
+---------------------
+Parameters for evaluation 42:
+                                     0 fs
+                                   984 ty
+                                     2 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_512c2e98 /tmp/dakota_results_9280c493
+
+Active response data for evaluation 42:
+Active set vector = { 1 1 1 }
+                      1.2251814683e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2177082000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   43
+---------------------
+Parameters for evaluation 43:
+                                     2 fs
+                                   981 ty
+                                     4 ct
+
+Duplication detected: analysis_drivers not invoked.
+
+Active response data retrieved from database:
+Active set vector = { 1 1 1 }
+                      1.3212165811e+07 response_fn_1
+                      8.0333263074e+08 response_fn_2
+                      1.2947852000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   44
+---------------------
+Parameters for evaluation 44:
+                                     5 fs
+                                   962 ty
+                                     1 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_2a0b0710 /tmp/dakota_results_2c728294
+
+Active response data for evaluation 44:
+Active set vector = { 1 1 1 }
+                      1.3224191843e+07 response_fn_1
+                      7.9881862037e+08 response_fn_2
+                      1.2314567333e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   45
+---------------------
+Parameters for evaluation 45:
+                                    10 fs
+                                  1006 ty
+                                     3 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_ce22d84d /tmp/dakota_results_e5f2ccff
+
+Active response data for evaluation 45:
+Active set vector = { 1 1 1 }
+                      1.3356797646e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   46
+---------------------
+Parameters for evaluation 46:
+                                    15 fs
+                                   969 ty
+                                     3 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_f8aa8bf6 /tmp/dakota_results_a50aa9e8
+
+Active response data for evaluation 46:
+Active set vector = { 1 1 1 }
+                      1.3110618494e+07 response_fn_1
+                      7.9881862037e+08 response_fn_2
+                      1.2087499333e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   47
+---------------------
+Parameters for evaluation 47:
+                                     6 fs
+                                   994 ty
+                                     0 ct
+
+Duplication detected: analysis_drivers not invoked.
+
+Active response data retrieved from database:
+Active set vector = { 1 1 1 }
+                      1.3571599970e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   48
+---------------------
+Parameters for evaluation 48:
+                                    18 fs
+                                   974 ty
+                                     1 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_9eea872b /tmp/dakota_results_8725ee95
+
+Active response data for evaluation 48:
+Active set vector = { 1 1 1 }
+                      1.3250388613e+07 response_fn_1
+                      8.0172048418e+08 response_fn_2
+                      1.2097916000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   49
+---------------------
+Parameters for evaluation 49:
+                                    13 fs
+                                  1002 ty
+                                     2 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_e5972581 /tmp/dakota_results_24a98d0a
+
+Active response data for evaluation 49:
+Active set vector = { 1 1 1 }
+                      1.3446069763e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+
+---------------------
+Begin Evaluation   50
+---------------------
+Parameters for evaluation 50:
+                                     8 fs
+                                   995 ty
+                                     4 ct
+
+blocking fork: python sobol.py /tmp/dakota_params_6af76b40 /tmp/dakota_results_511084a2
+
+Active response data for evaluation 50:
+Active set vector = { 1 1 1 }
+                      1.3331422969e+07 response_fn_1
+                      8.0784664110e+08 response_fn_2
+                      1.2110416000e+02 response_fn_3
+
+
+<<<<< Function evaluation summary: 50 total (47 new, 3 duplicate)
+
+Global sensitivity indices for each response function:
+response_fn_1 Sobol' indices:
+                                  Main             Total
+                      3.5898968633e-01  8.2816409164e-01 fs
+                     -5.4393902324e-02  3.8094355180e-01 ty
+                      1.9139064273e-01  1.2610451512e-01 ct
+response_fn_2 Sobol' indices:
+                                  Main             Total
+                      0.0000000000e+00  0.0000000000e+00 fs
+                      1.0536503564e+00  9.7143199377e-01 ty
+                      0.0000000000e+00  0.0000000000e+00 ct
+response_fn_3 Sobol' indices:
+                                  Main             Total
+                      2.9114220689e-02  5.0861322572e-02 fs
+                      1.8343245564e+00  1.5054890876e+00 ty
+                      0.0000000000e+00  0.0000000000e+00 ct
+
+<<<<< Iterator random_sampling completed.
+<<<<< Environment execution completed.
+DAKOTA execution time in seconds:
+  Total CPU        =   0.049825 [parent =   0.049822, child =      3e-06]
+  Total wall clock =    13160.5

@@ -1,0 +1,28 @@
+# Dakota Input File: sobol.in
+
+environment
+  tabular_data
+    tabular_data_file 'sobol.dat'
+
+method
+  nond_sampling
+    sample_type 
+      lhs
+    variance_based_decomp
+    samples = 10
+
+variables,					
+    discrete_interval_uncertain = 3
+       num_intervals = 1 1 1 
+       lower_bounds       0    960   0         
+       upper_bounds       20   1008  4
+       descriptors       'fs' 'ty' 'ct' 
+
+interface
+  fork 
+    analysis_drivers = 'python sobol.py'
+    
+responses
+  num_response_functions = 3
+  no_gradients
+  no_hessians

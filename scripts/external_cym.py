@@ -3,7 +3,6 @@ from cymetric import timeseries
 import signal
 import os
 import sys
-sys.path.append('../../../scripts')
 import output as oup
 
 
