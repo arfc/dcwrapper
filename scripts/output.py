@@ -26,9 +26,15 @@ def initialize_df(scenario_index, scenarios_nums):
 
 # sensitivity
 def sensitivity(base_case, init_df):
-    """ This function takes a dataframe
+    """ 
+    This function takes a dataframe and returns the % difference of each value to the 
+    base case value. 
+    INPUT 
+    base_case: basecase number in string form (str)
+    init_df: pandas dataframe
+    OUTPUT sa_df = sensitivity analysis pandas dataframe 
     """
-    SA_df = init_df.copy()
+    sa_df = init_df.copy()
     M = init_df.index.size
     categories = list(init_df)
     N = len(categories)
@@ -40,18 +46,22 @@ def sensitivity(base_case, init_df):
     for x in range(M):
         if init_df.index[x] == base_case:
             for y in range(N):
-                SA_df.iloc[x, y] = 0
+                sa_df.iloc[x, y] = 0
         else:
             for y in range(N):
                 if float(init_df.iloc[basecase_index, y]) == 0:
-                    SA_df.iloc[x, y] = np.nan
+                    sa_df.iloc[x, y] = np.nan
                 else:
-                    SA_df.iloc[x, y] = (init_df.iloc[x, y] - init_df.iloc[basecase_index, y]) / \
+                    sa_df.iloc[x, y] = (init_df.iloc[x, y] - init_df.iloc[basecase_index, y]) / \
                         init_df.iloc[basecase_index, y] * 100
-    return SA_df
+    return sa_df
 
 
 def idlecap(evaluator, demand_eq):
+    """
+    This function uses cymetric to read the output_sqlite file for 
+    total idle capacity value. 
+    """
     ep = evaluator.eval('FcoMonthlyElectricityGenerated')
     t = np.arange(0, 1440)
     power = eval(demand_eq)
