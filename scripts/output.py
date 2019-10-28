@@ -34,7 +34,7 @@ def sensitivity(base_case, init_df):
     init_df: pandas dataframe
     OUTPUT sa_df = sensitivity analysis pandas dataframe 
     """
-    sfa_df = init_df.copy()
+    sa_df = init_df.copy()
     df_length = init_df.index.size
     categories = list(init_df)
     N = len(categories)

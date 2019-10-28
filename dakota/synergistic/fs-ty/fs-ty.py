@@ -1,4 +1,3 @@
-import external_cym
 import multiprocessing
 import sys
 import os
@@ -9,6 +8,7 @@ import glob
 sys.path.append('../../../scripts')
 import input as inp
 import output as oup
+import external_cym
 
 cycdir = '../../../cyclus-files/synergistic/fs-ty/'
 
