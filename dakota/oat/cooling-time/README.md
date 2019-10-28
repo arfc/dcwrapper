@@ -1,4 +1,4 @@
-Hello. Welcome to the One-at-a-time Cooling time sensitivity analysis study. 
+# Hello. Welcome to the One-at-a-time Cooling time sensitivity analysis study. 
 To run the simulation, type this into the command line: 
 `dakota -i cooling-time.in -o cooling-time.out`
 This will generate 5 sqlite output files in the 
