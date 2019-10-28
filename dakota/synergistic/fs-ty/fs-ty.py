@@ -71,7 +71,7 @@ if f.mode == 'r':
     depleted_u = f.read()
 f.close()
 
-p = multiprocessing.Process(target=external_cym.idlecapp)
+p = multiprocessing.Process(target=external_cym.idle_cap)
 p.start()
 fresh = False
 while fresh is False:

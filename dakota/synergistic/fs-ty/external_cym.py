@@ -8,6 +8,10 @@ import output as oup
 
 
 def hlw():
+    """
+    This function uses cymetric to read the output_sqlite file for 
+    final hlw value. 
+    """
     f = open('output_name.txt', 'r')
     if f.mode == 'r':
         output_sqlite = f.read()
@@ -24,6 +28,10 @@ def hlw():
 
 
 def dep_u():
+    """
+    This function uses cymetric to read the output_sqlite file for 
+    final depleted u value. 
+    """
     f = open('output_name.txt', 'r')
     if f.mode == 'r':
         output_sqlite = f.read()
@@ -38,13 +46,17 @@ def dep_u():
     return val
 
 
-def idlecapp():
+def idle_cap():
+    """
+    This function uses cymetric to read the output_sqlite file for 
+    total idle capacity value. 
+    """
     f = open('output_name.txt', 'r')
     if f.mode == 'r':
         output_sqlite = f.read()
     f.close()
     ev = cym.Evaluator(db=cym.dbopen(output_sqlite), write=True)
-    val, val2, val3 = oup.idlecap(ev, '(60000+250*t/12)/1000')
+    val, val2, val3 = oup.idlecap(ev, '(60000+250*t/12.0)/1000.0')
     f = open('idlecap.txt', 'w+')
     f.write(str(val))
     f.close()
