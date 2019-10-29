@@ -1,0 +1,25 @@
+# OAT Study
+# Varying the temperature of the electrorefiner
+
+environment,
+        tabular_data,
+                tabular_data_file = 'ref-temp.dat'
+
+method,
+        multidim_parameter_study
+    partitions = 4
+
+variables,
+        continuous_design = 1
+    lower_bounds        500
+    upper_bounds        1000
+    descriptors         'temp'
+
+interface,
+        fork
+            analysis_drivers = 'python ref-temp.py'
+
+responses,
+        num_objective_functions = 1
+        no_gradients
+        no_hessians
