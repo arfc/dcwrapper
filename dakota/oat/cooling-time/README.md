@@ -19,5 +19,6 @@ This will generate 5 sqlite output files in the
 `../../../cyclus-files/oat/cooling-time/` directory. 
 The distinction between these output files and the non-exp ones is that these cyclus input 
 files include an `<explicit_inventory>True</explicit_inventory>` that turns on 
-explicit inventory tracking. These simulations take significantly longer to run. 
+explicit inventory tracking. This is required to use the isotopic capabilities in cymetric. 
+These simulations take significantly longer to run. 
 
