@@ -22,7 +22,7 @@ params, results = di.read_parameters_file()
 cyclus_template = cycdir + 'cooling-time-exp.xml.in'
 scenario_name = 'ct' + str(int(params['ct'])) + '-exp'
 variable_dict = {'cooling_time': int((params['ct'] * 12))}
-output_xml = cycdir + 'cooling-time.xml'
+output_xml = cycdir + 'cooling-time-exp.xml'
 inp.render_input(cyclus_template, variable_dict, output_xml)
 
 # Run Cyclus with edited input file
