@@ -1,0 +1,25 @@
+# OAT Study 
+# Varying Transition Start Date (Year)
+
+environment, 
+	tabular_data 
+		tabular_data_file = 'transition-year-exp.dat'
+
+method,						
+	multidim_parameter_study
+    partitions = 4
+
+variables,					
+	continuous_design = 1			
+    lower_bounds      960     
+    upper_bounds      1008      
+    descriptors       'ty'     
+
+interface,							
+	fork							
+	  analysis_drivers = 'python transition-year-exp.py'
+
+responses,				
+	num_objective_functions = 1	
+	no_gradients
+	no_hessians
