@@ -1,0 +1,25 @@
+# OAT Study 
+# Varying Fleet Share Ratio
+
+environment, 
+	tabular_data 
+		tabular_data_file = 'fleet-share-exp.dat'
+
+method,						
+	multidim_parameter_study
+    partitions = 4
+
+variables,					
+	continuous_design = 1			
+    lower_bounds      0     
+    upper_bounds      20      
+    descriptors       'fs'     
+
+interface,							
+	fork							
+	  analysis_drivers = 'python fleet-share-exp.py'
+
+responses,				
+	num_objective_functions = 1	
+	no_gradients
+	no_hessians
