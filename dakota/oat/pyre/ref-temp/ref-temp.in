@@ -7,11 +7,11 @@ environment,
 
 method,
         multidim_parameter_study
-    partitions = 4
+    partitions = 5
 
 variables,
         continuous_design = 1
-    lower_bounds        500
+    lower_bounds        750
     upper_bounds        1000
     descriptors         'temp'
 

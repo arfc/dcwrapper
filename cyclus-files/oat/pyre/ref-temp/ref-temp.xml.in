@@ -35,6 +35,7 @@
           <val>refine_TRU_prod</val>
           <val>winning_waste</val>
           <val>reprocess_waste</val>
+	  <val>diverted</val>
         </in_commods>
         <capacity>1e299</capacity>
       </Sink>

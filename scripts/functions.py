@@ -1,0 +1,72 @@
+import numpy as np
+import sqlite3 as lite
+
+def get_cursor(file_name):
+    """Connects and returns a cursor to an sqlite output file
+    Parameters
+    ----------
+    file_name: str
+        name of the sqlite file
+    Returns
+    -------
+    sqlite cursor3
+    """
+    con = lite.connect(file_name)
+    con.row_factory = lite.Row
+    return con.cursor()
+
+def get_timesteps(cur):
+    """Returns simulation start year, month, duration and
+    timesteps (in numpy linspace).
+    Parameters
+    ----------
+    cur: sqlite cursor
+        sqlite cursor
+    Returns
+    -------
+    init_year: int
+        start year of simulation
+    init_month: int
+        start month of simulation
+    duration: int
+        duration of simulation
+    timestep: list
+        linspace up to duration
+    """
+    info = cur.execute('SELECT initialyear, initialmonth, '
+                       'duration FROM info').fetchone()
+    init_year = info['initialyear']
+    init_month = info['initialmonth']
+    duration = info['duration']
+    timestep = np.linspace(0, duration - 1, num=duration)
+
+    return init_year, init_month, duration, timestep
+
+def get_timeseries(in_list, duration, kg_to_tons):
+    """returns a timeseries list from in_list data.
+    Parameters
+    ----------
+    in_list: list
+        list of data to be created into timeseries
+        list[0] = time
+        list[1] = value, quantity
+    duration: int
+        duration of the simulation
+    kg_to_tons: bool
+        if True, list returned has units of tons
+        if False, list returned as units of kilograms
+    Returns
+    -------
+    timeseries list of commodities stored in in_list
+    """
+    value = 0
+    value_timeseries = []
+    array = np.array(in_list)
+    if len(in_list) > 0:
+        for i in range(0, duration):
+            value = sum(array[array[:, 0] == i][:, 1])
+            if kg_to_tons:
+                value_timeseries.append(value * 0.001)
+            else:
+                value_timeseries.append(value)
+    return value_timeseries
