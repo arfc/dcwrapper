@@ -27,9 +27,9 @@ To run this simulation, type this into the command line:
 
 This will generate 5 sqlite output files in the 
 `../../../cyclus-files/oat/cooling-time/` directory.
-Example name of output file: `ct0-exp.sqlite`.  
-They contain the results for EG01-30 transition scenario with varying cooling times 
-of 0, 2, 4, 6, and 8 years with explicit inventory. 
+Example name of output file: `ct0-exp.sqlite`. They contain the results for EG01-30 
+transition scenario with varying cooling times of 0, 2, 4, 6, and 8 years 
+with explicit inventory. 
 Use the `cooling-time-pu.ipynb` jupyter notebook to analyze the proliferation risk
 evaluation metric from these sqlite files.
 
