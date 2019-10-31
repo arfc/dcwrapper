@@ -11,7 +11,7 @@ This will generate 5 sqlite output files in the
 `../../../cyclus-files/oat/fleet-share/` directory. 
 Example name of output file: `fs0.sqlite`.
 They contain the results for EG01-30 transition scenario with varying MOX PWR fleet share
-percentage 0,5,10,15,20 %. 
+percentage 0,5,10,15,20 % of MOX PWRs and SFRs. 
 Use the `fleet-share.ipynb` jupyter notebook to analyze environmental impact, resource utilization, 
 and goodness of transition evaluation metrics from these sqlite files.
 
