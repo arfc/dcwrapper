@@ -1,0 +1,25 @@
+# OAT Study 
+# Varying Used Fuel Cooling Time 
+
+environment, 
+	tabular_data 
+		tabular_data_file = 'cooling-time-exp.dat'
+
+method,						
+	multidim_parameter_study
+    partitions = 4
+
+variables,					
+	continuous_design = 1			
+    lower_bounds      0     
+    upper_bounds      8      
+    descriptors       'ct'     
+
+interface,							
+	fork							
+	  analysis_drivers = 'python cooling-time-exp.py'
+
+responses,				
+	num_objective_functions = 1	
+	no_gradients
+	no_hessians
