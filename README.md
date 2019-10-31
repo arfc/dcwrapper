@@ -23,12 +23,12 @@ A few things to note:
 * Any new scripts created should go into the `scripts` directory. 
 
 ## Dependencies 
-Cyclus & it's dependencies: https://github.com/cyclus/cyclus 
+Cyclus & its dependencies: https://github.com/cyclus/cyclus 
 
-Cycamore & it's dependencies: https://github.com/cyclus/cycamore
+Cycamore & its dependencies: https://github.com/cyclus/cycamore
 
-Cymetric & it's dependencies: https://github.com/cyclus/cymetric
+Cymetric & its dependencies: https://github.com/cyclus/cymetric
 
-Pyne & it's dependencies: https://github.com/pyne/pyne
+Pyne & its dependencies: https://github.com/pyne/pyne
 
-Dakota & it's depenencies: https://dakota.sandia.gov/download.html
+Dakota & its depenencies: https://dakota.sandia.gov/download.html
