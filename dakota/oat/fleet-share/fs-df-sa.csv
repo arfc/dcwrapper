@@ -1,4 +1,4 @@
-FS,Final HLW,Final Depleted U,Total uranium ore,Total idle capacity,Last date idle capacity,Duration of transition
+FS [%],Max Pu in all CP [kg],Pu Quality in all CP at Max Pu,Max Pu in HLW [kg],Pu Quality in HLW at Max Pu,Max Pu in all RPR [kg],Pu Quality in all RPR at Max Pu
 0,1.4931650041648128,0.0,0.0,0.0,0.0,0.0
 5,0.7518361675312512,0.0,0.0,0.0,0.0,0.0
 10,0.7125419072951714,0.0,0.0,0.0,0.0,0.0

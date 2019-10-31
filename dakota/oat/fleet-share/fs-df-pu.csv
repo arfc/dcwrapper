@@ -1,4 +1,4 @@
-FS,Max Pu in all CP,Pu Quality in all CP at Max Pu,Max Pu in HLW,Pu Quality in HLW at Max Pu,Max Pu in all RPR,Pu Quality in all RPR at Max Pu
+FS [%],Max Pu in all CP [kg],Pu Quality in all CP at Max Pu,Max Pu in HLW [kg],Pu Quality in HLW at Max Pu,Max Pu in all RPR [kg],Pu Quality in all RPR at Max Pu
 0,256794.0273,0.656144366,45816.018560000004,0.616189596,2357604.009,0.5481649820000001
 5,273733.1322,0.6188384929999999,44338.72473,0.617841663,2461421.306,0.512185216
 10,279694.7846,0.6058651999999999,44055.53671,0.618561266,2513133.758,0.496723966
