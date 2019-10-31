@@ -1,6 +1,7 @@
 import numpy as np
 import sqlite3 as lite
 
+
 def get_cursor(file_name):
     """Connects and returns a cursor to an sqlite output file
     Parameters
@@ -14,6 +15,7 @@ def get_cursor(file_name):
     con = lite.connect(file_name)
     con.row_factory = lite.Row
     return con.cursor()
+
 
 def get_timesteps(cur):
     """Returns simulation start year, month, duration and
@@ -41,6 +43,7 @@ def get_timesteps(cur):
     timestep = np.linspace(0, duration - 1, num=duration)
 
     return init_year, init_month, duration, timestep
+
 
 def get_timeseries(in_list, duration, kg_to_tons):
     """returns a timeseries list from in_list data.
