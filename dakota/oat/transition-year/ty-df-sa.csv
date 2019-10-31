@@ -1,4 +1,4 @@
-TY,Final HLW,Final Depleted U,Total uranium ore,Total idle capacity,Last date idle capacity,Duration of transition
+TY [yr],Final HLW [kg],Final Depleted U [kg],Total uranium ore [kg],Total idle capacity [MW],Last date idle capacity [yr],Duration of transition [yrs]
 960,0.0,0.0,0.0,0.0,0.0,0.0
 972,0.8458805533396782,0.0,0.0,-10.4719358420728,1.0395010395010396,-100.0
 984,2.011098330754969,0.5650857719474875,0.0,-10.348555212831597,1.8711018711018712,-100.0
