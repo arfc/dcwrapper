@@ -4,8 +4,12 @@ This repository contains examples of Cyclus sensitivity analysis
 studies conducted with a Dakota wrapper. 
 Cyclus interfaces with Dakota using a Python interface. 
 
-To run the simple test case, go into the dakota/test/ directory and 
-run ```dakota -i dakota_test.in -o dakota_test.out```
+To run the simple test case, run the following from this directory: 
+```
+bash
+cd dakota/test/ 
+dakota -i dakota_test.in -o dakota_test.out
+```
 
 The structure of each sensitivity analysis study in this repository 
 is as follows: 
