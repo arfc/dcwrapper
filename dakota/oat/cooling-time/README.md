@@ -9,9 +9,8 @@ To run the simulation, type this into the command line:
 
 This will generate 5 sqlite output files in the 
 `../../../cyclus-files/oat/cooling-time/` directory.
-Example name of output file: `ct0.sqlite`.  
-They contain the results for EG01-30 transition scenario with varying cooling times 
-of 0, 2, 4, 6, and 8 years. 
+Example name of output file: `ct0.sqlite`. They contain the results for EG01-30 
+transition scenario with varying cooling times of 0, 2, 4, 6, and 8 years. 
 Use the `cooling-time.ipynb` jupyter notebook to analyze environmental impact, resource utilization, 
 and goodness of transition evaluation metrics from these sqlite files.
 
