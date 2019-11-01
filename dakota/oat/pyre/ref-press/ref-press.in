@@ -1,0 +1,25 @@
+# OAT Study
+# Varying the pressure of the electrorefiner
+
+environment,
+        tabular_data,
+                tabular_data_file = 'ref-press.dat'
+
+method,
+        multidim_parameter_study
+    partitions = 5
+
+variables,
+        continuous_design = 1
+    lower_bounds        100
+    upper_bounds        760
+    descriptors         'press'
+
+interface,
+        fork
+            analysis_drivers = 'python ref-press.py'
+
+responses,
+        num_objective_functions = 1
+        no_gradients
+        no_hessians

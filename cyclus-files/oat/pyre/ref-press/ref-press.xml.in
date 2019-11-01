@@ -1,0 +1,313 @@
+<simulation>
+  <control>
+    <duration>20</duration>
+    <startmonth>1</startmonth>
+    <startyear>2000</startyear>
+  </control>
+
+  <archetypes>
+    <spec><lib>agents</lib><name>NullRegion</name></spec>
+    <spec><lib>agents</lib><name>NullInst</name></spec>
+    <spec><lib>agents</lib><name>Source</name></spec>
+    <spec><lib>agents</lib><name>Sink</name></spec>
+    <spec><lib>recycle</lib><name>Pyre</name></spec>
+  </archetypes>
+
+  <facility>
+   <name>lwr_waste_source</name>
+     <config>
+       <Source>
+         <commod>leu</commod>
+         <capacity>1e299</capacity>
+         <recipe_name>lwr_waste</recipe_name>
+       </Source>
+     </config>
+  </facility>
+
+  <facility>
+    <name>sink</name>
+    <config>
+      <Sink>
+        <in_commods>
+          <val>volox_waste</val>
+          <val>reduct_waste</val>
+          <val>refine_U_prod</val>
+          <val>refine_TRU_prod</val>
+          <val>winning_waste</val>
+          <val>reprocess_waste</val>
+	  <val>diverted</val>
+        </in_commods>
+        <capacity>1e299</capacity>
+      </Sink>
+    </config>
+  </facility>
+
+  <facility>
+    <name>LEU_pyro</name>
+    <config>
+      <Pyre>
+        <type_>operator</type_>
+        <feed_commods> <val>leu</val> </feed_commods>
+        <feed_commod_prefs> <val>1.0</val> </feed_commod_prefs>
+        <feed_recipe>lwr_waste</feed_recipe>
+        <location_sub>refine</location_sub>
+        <location_par>temp</location_par>
+        <frequency_>10</frequency_>
+        <divert_num_>1</divert_num_>
+        <volox_temp>900</volox_temp>
+        <volox_time>1</volox_time>
+        <volox_flowrate>2</volox_flowrate>
+        <volox_volume>1</volox_volume>
+        <reduct_current>8</reduct_current>
+        <reduct_lithium_oxide>2</reduct_lithium_oxide>
+        <reduct_volume>1</reduct_volume>
+        <reduct_time>2</reduct_time>
+        <refine_temp>900</refine_temp>
+        <refine_press>{{refining_pressure}}</refine_press>
+        <refine_rotation>100</refine_rotation>
+        <refine_batch_size>30</refine_batch_size>
+        <refine_time>2</refine_time>
+        <winning_current>8</winning_current>
+        <winning_time>1</winning_time>
+        <winning_flowrate>3</winning_flowrate>
+        <winning_volume>2</winning_volume>
+        <feedbuf_size>1000</feedbuf_size>
+        <throughput>1000</throughput>
+        <leftover_commod>reprocess_waste</leftover_commod>
+        <streams>
+          <item>
+            <commod>volox_waste</commod>
+            <info>
+              <buf_size>1000</buf_size>
+              <efficiencies>
+                <item>
+                  <comp>H</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>C</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Kr</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>I</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Cs</comp> <eff>.98</eff>
+                </item>
+                <item>
+                  <comp>Tc</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Ru</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Rh</comp> <eff>.80</eff>
+                </item>
+                <item>
+                  <comp>Te</comp> <eff>.9</eff>
+                </item>
+                <item>
+                  <comp>Mo</comp> <eff>.8</eff>
+                </item>
+                <item>
+                  <comp>Xe</comp> <eff>1</eff>
+                </item>
+              </efficiencies>
+            </info>
+          </item>
+          <item>
+            <commod>reduct_waste</commod>
+            <info>
+              <buf_size>1000</buf_size>
+              <efficiencies>
+                <item>
+                  <comp>U</comp> <eff>0.00096</eff>
+                </item>
+                <item>
+                  <comp>Ag</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Pd</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Rh</comp> <eff>0.2</eff>
+                </item>
+                <item>
+                  <comp>Mo</comp> <eff>0.2</eff>
+                </item>
+                <item>
+                  <comp>Zr</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Cs</comp> <eff>0.02</eff>
+                </item>
+                <item>
+                  <comp>Sr</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Ba</comp> <eff>1</eff>
+                </item>
+              </efficiencies>
+            </info>
+          </item>
+          <item>
+            <commod>refine_U_prod</commod>
+            <info>
+              <buf_size>1000</buf_size>
+              <efficiencies>
+                <item>
+                  <comp>U</comp> <eff> 0.9936 </eff>
+                </item>
+              </efficiencies>
+            </info>
+          </item>
+          <item>
+            <commod>refine_TRU_prod</commod>
+            <info>
+              <buf_size>1000</buf_size>
+              <efficiencies>
+                <item>
+                  <comp>U</comp> <eff>0.00544</eff>
+                </item>
+                <item>
+                  <comp>Np</comp> <eff>0.9999</eff>
+                </item>
+                <item>
+                  <comp>Pu</comp> <eff>0.9991</eff>
+                </item>
+                <item>
+                  <comp>Am</comp> <eff>0.9999</eff>
+                </item>
+                <item>
+                  <comp>Cm</comp> <eff>0.9999</eff>
+                </item>
+              </efficiencies>
+            </info>
+          </item>
+          <item>
+            <commod>winning_waste</commod>
+            <info>
+              <buf_size>1000</buf_size>
+              <efficiencies>
+                <item>
+                  <comp>Np</comp> <eff>0.0001</eff>
+                </item>
+                <item>
+                  <comp>Pu</comp> <eff>0.0009</eff>
+                </item>
+                <item>
+                  <comp>Am</comp> <eff>0.0001</eff>
+                </item>
+                <item>
+                  <comp>Cm</comp> <eff>0.0001</eff>
+                </item>
+                <item>
+                  <comp>Ce</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Eu</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Gd</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>La</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Nd</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Pr</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Pm</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Sm</comp> <eff>1</eff>
+                </item>
+                <item>
+                  <comp>Y</comp> <eff>1</eff>
+                </item>
+              </efficiencies>
+            </info>
+          </item>
+        </streams>
+      </Pyre>
+    </config>
+  </facility>
+
+  <region>
+    <name>region</name>
+    <config><NullRegion/></config>
+    <institution>
+      <name>nullinst</name>
+      <initialfacilitylist>
+        <entry>
+          <number>1</number>
+          <prototype>lwr_waste_source</prototype>
+        </entry>
+        <entry>
+          <number>1</number>
+          <prototype>LEU_pyro</prototype>
+        </entry>
+        <entry>
+          <number>1</number>
+          <prototype>sink</prototype>
+        </entry>
+      </initialfacilitylist>
+      <config><NullInst/></config>
+    </institution>
+  </region>
+
+<recipe>
+  <name>lwr_waste</name>
+  <basis>mass</basis>
+  <nuclide> <id>U234</id> <comp>0.143</comp> </nuclide>
+  <nuclide> <id>U235</id> <comp>6.06</comp> </nuclide>
+  <nuclide> <id>U236</id> <comp>5.66</comp> </nuclide>
+  <nuclide> <id>U238</id> <comp>928.93</comp> </nuclide>
+  <nuclide> <id>Np237</id> <comp>0.57</comp> </nuclide>
+  <nuclide> <id>Pu238</id> <comp>0.3509</comp> </nuclide>
+  <nuclide> <id>Pu239</id> <comp>5.48</comp> </nuclide>
+  <nuclide> <id>Pu240</id> <comp>2.679</comp> </nuclide>
+  <nuclide> <id>Pu241</id> <comp>1.717</comp> </nuclide>
+  <nuclide> <id>Pu242</id> <comp>0.962</comp> </nuclide>
+  <nuclide> <id>Am241</id> <comp>0.506</comp> </nuclide>
+  <nuclide> <id>Am243</id> <comp>0.004</comp> </nuclide>
+  <nuclide> <id>Cm243</id> <comp>0.0001</comp> </nuclide>
+  <nuclide> <id>Cm244</id> <comp>0.0277</comp> </nuclide>
+  <nuclide> <id>Cm245</id> <comp>0.0022</comp> </nuclide>
+  <nuclide> <id>Cs137</id> <comp>3.69</comp> </nuclide>
+  <nuclide> <id>Sr90</id> <comp>0.67</comp> </nuclide>
+  <nuclide> <id>Ba133</id> <comp>0.42</comp> </nuclide>
+  <nuclide> <id>Ce144</id> <comp>3.21</comp> </nuclide>
+  <nuclide> <id>Eu153</id> <comp>0.19</comp> </nuclide>
+  <nuclide> <id>Gd155</id> <comp>0.15</comp> </nuclide>
+  <nuclide> <id>La139</id> <comp>1.67</comp> </nuclide>
+  <nuclide> <id>Nd143</id> <comp>2.89</comp> </nuclide>
+  <nuclide> <id>Nd145</id> <comp>2.68</comp> </nuclide>
+  <nuclide> <id>Pr144</id> <comp>1.54</comp> </nuclide>
+  <nuclide> <id>Pm147</id> <comp>0.06</comp> </nuclide>
+  <nuclide> <id>Sm147</id> <comp>0.26</comp> </nuclide>
+  <nuclide> <id>Sm149</id> <comp>0.0045</comp> </nuclide>
+  <nuclide> <id>Sm150</id> <comp>0.60</comp> </nuclide>
+  <nuclide> <id>Sm151</id> <comp>0.020</comp> </nuclide>
+  <nuclide> <id>Sm152</id> <comp>0.1755</comp> </nuclide>
+  <nuclide> <id>Y90</id> <comp>0.64</comp> </nuclide>
+  <nuclide> <id>Tc99</id> <comp>1.07</comp> </nuclide>
+  <nuclide> <id>Te132</id> <comp>1.07</comp> </nuclide>
+  <nuclide> <id>Ag109</id> <comp>0.09</comp> </nuclide>
+  <nuclide> <id>Pd107</id> <comp>1.67</comp> </nuclide>
+  <nuclide> <id>Rh103</id> <comp>0.60</comp> </nuclide>
+  <nuclide> <id>Ru101</id> <comp>2.96</comp> </nuclide>
+  <nuclide> <id>Mo95</id> <comp>4.60</comp> </nuclide>
+  <nuclide> <id>Zr95</id> <comp>2.93</comp> </nuclide>
+  <nuclide> <id>I129</id> <comp>0.26</comp> </nuclide>
+  <nuclide> <id>Xe129</id> <comp>7.12</comp> </nuclide>
+  <nuclide> <id>Kr86</id> <comp>0.25</comp> </nuclide>
+  <nuclide> <id>C14</id> <comp>0.00013</comp> </nuclide>
+  <nuclide> <id>H3</id> <comp>0.00008</comp> </nuclide>
+</recipe>
+
+</simulation>
