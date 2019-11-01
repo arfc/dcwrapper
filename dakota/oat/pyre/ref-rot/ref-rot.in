@@ -1,0 +1,25 @@
+# OAT Study
+# Varying the stirrer speed of the electrorefiner
+
+environment,
+        tabular_data,
+                tabular_data_file = 'ref-rot.dat'
+
+method,
+        multidim_parameter_study
+    partitions = 5
+
+variables,
+        continuous_design = 1
+    lower_bounds        0
+    upper_bounds        100
+    descriptors         'rot'
+
+interface,
+        fork
+            analysis_drivers = 'python ref-rot.py'
+
+responses,
+        num_objective_functions = 1
+        no_gradients
+        no_hessians
