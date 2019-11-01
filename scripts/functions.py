@@ -5,31 +5,32 @@ import sqlite3 as lite
 def isotope_total_cum(cur, num, in_dict):
     """ Find total isotopes present in each output stream
     ----------
-    Parameters 
+    Parameters
     ----------
-    cur: sqlite cursor 
-    num: nucid 
-    Returns 
+    cur: sqlite cursor
+    num: nucid
+    Returns
     -------
-    """    
-    streamlist = ["reprocess_waste","diverted"]
+    """
+    streamlist = ["reprocess_waste", "diverted"]
     isotope_total_list = []
     isotope_list = []
     isotope_ttal = 0
-    
+
     for stream in streamlist:
         init_yr, init_month, duration, timestep = get_timesteps(cur)
-        isotopes = cur.execute('SELECT time, sum(quantity)*massfrac FROM transactions '
-                               'INNER JOIN resources '
-                               'ON transactions.resourceid = resources.resourceid '
-                               'LEFT OUTER JOIN compositions '
-                               'ON resources.qualid = compositions.qualid '
-                               'WHERE Commodity =:stream AND nucid =:num ' # must specify isotope and stream
-                               ' GROUP BY time ',{"stream": stream, "num":num}).fetchall()
-        isotope_list = get_timeseries(isotopes,duration,False)
+        isotopes = cur.execute(
+            'SELECT time, sum(quantity)*massfrac FROM transactions '
+            'INNER JOIN resources '
+            'ON transactions.resourceid = resources.resourceid '
+            'LEFT OUTER JOIN compositions '
+            'ON resources.qualid = compositions.qualid '
+            'WHERE Commodity =: stream AND nucid =: num '
+            ' GROUP BY time ', {"stream": stream, "num": num}).fetchall()
+        isotope_list = get_timeseries(isotopes, duration, False)
         isotope_total = np.sum(isotope_list)
         isotope_total_list.append(isotope_total)
-    
+
     name = num*0.0001
     in_dict[name] = isotope_total_list
     return in_dict
