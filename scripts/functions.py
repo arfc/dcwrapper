@@ -2,25 +2,22 @@ import numpy as np
 import sqlite3 as lite
 
 
-def isotope_total_cum(cur,num,in_dict):
-    """ Find total isotopes present in each output stream 
-    
+def isotope_total_cum(cur, num, in_dict):
+    """ Find total isotopes present in each output stream
+    ----------
     Parameters 
     ----------
     cur: sqlite cursor 
     num: nucid 
-    
     Returns 
     -------
-
     """    
-    
     streamlist = ["reprocess_waste","diverted"]
     isotope_total_list = []
     isotope_list = []
-    isotope_ttal = 0 
+    isotope_ttal = 0
     
-    for stream in streamlist:    
+    for stream in streamlist:
         init_yr, init_month, duration, timestep = get_timesteps(cur)
         isotopes = cur.execute('SELECT time, sum(quantity)*massfrac FROM transactions '
                                'INNER JOIN resources '
@@ -37,7 +34,7 @@ def isotope_total_cum(cur,num,in_dict):
     in_dict[name] = isotope_total_list
     return in_dict
 
-    
+
 def get_cursor(file_name):
     """Connects and returns a cursor to an sqlite output file
     Parameters
