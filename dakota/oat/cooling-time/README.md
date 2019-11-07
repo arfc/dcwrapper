@@ -14,7 +14,7 @@ transition scenario with varying cooling times of 0, 2, 4, 6, and 8 years.
 Use the `cooling-time.ipynb` jupyter notebook to analyze environmental impact, resource utilization, 
 and goodness of transition evaluation metrics from these sqlite files.
 
-To obtain the results for proliferation risk evaluation metrics. We need to run 
+To obtain the results for proliferation risk evaluation metrics we need to run 
 the same analysis as above but with `<explicit_inventory>true</explicit_inventory>`
 in the control segment of the cyclus input file. 
 The distinction between these output files and the non-exp ones is that 
